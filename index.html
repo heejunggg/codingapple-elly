@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Document</title>
+  </head>
+  <!-- 코딩애플 4강,5강 비슷한 함수 줄이기-->
+
+  <body>
+    <div class="alert-box" id="alert">
+      <p>alert박스</p>
+      <button onclick="알림창열기('none')">닫기</button>
+    </div>
+    <button onclick="알림창열기('block')">버튼</button>
+
+    <script>
+      function 알림창열기(구멍) {
+        document.getElementById("alert").style.display = 구멍;
+      }
+
+      // 알림창열기(123);
+      // 알림창열기("block");
+      // 알림창열기("none");
+      //하나의 함수로 피라미터를 통해서 짧게 구사할수있다. 위의 html피라피터에 block과 none을 입력한다.
+
+      /* 이 함수는 필요 없어짐.
+      function 알림창닫기() {
+        document.getElementById("alert").style.display = "none";
+      }
+      */
+
+      //다른 피라미터 예제
+      function plus(구멍) {
+        2 + 구멍;
+      }
+      plus(1); // 2+1이 됨.
+    </script>
+  </body>
+</html>

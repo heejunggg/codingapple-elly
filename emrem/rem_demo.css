@@ -1,0 +1,27 @@
+.component {
+    width: 50%;
+    border: 1px solid burlywood;
+    /* 
+    font-size: 2rem;
+    font-size:32px */
+
+    font-size:40px;
+  }
+  
+  .title {
+    padding: 8px;
+    /* padding: 0.5em 0.5rem; */
+    background-color: burlywood;
+  }
+  
+  .contents {
+    font-size: 1rem;
+    /* font-size:16px; root기준.  */
+    padding: 0.5em 0.5rem;
+  }
+  
+  /* @media screen and (max-width: 780px) {
+    .component {
+      font-size: 1.5rem;
+    }
+  } */
