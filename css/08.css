@@ -1,0 +1,8 @@
+ul,
+li {
+  list-style: none;
+}
+.main-bg {
+  background: lightgray;
+  padding: 100px 20px;
+}

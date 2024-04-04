@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 모달창 시작 html에 맨 위에 위치시킨다. -->
+    <div class="black-bg show-modal">
+      <div class="white-bg">
+        <h4>로그인하세요.</h4>
+
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 애니메이션 -->
+    <!-- one-way 애니메이션 만드는법
+    1. 시작스타일
+    2. 최종스타일
+    3. 원할떄 최종스타일로 변하라고 코드짬.
+    4. transition추가
+    -->
+
+    <!-- 모달창 끝 -->
+    <!--nav-->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+      </div>
+    </nav>
+
+    <ul class="list-group">
+      <li class="list-group-item">An itemfthfy</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon">로그인</span>
+    </button>
+
+    <!--  -->
+    <script>
+      /*
+        전송버튼을 클릭하면  --이벤트리스터
+       첫째<INPUT> 에 공백이면 alert띄우기
+
+        <button type="submit" class="btn btn-primary">전송</button>
+
+       alert('안녕하세요')
+       */
+
+      let first = document.querySelector(".form-control");
+
+      document.querySelector(".btn").addEventListener("click", function () {
+        if ((first = " ")) {
+          alert("원래 혼자공부는 외롭다.ㅎㅎ.");
+        }
+      });
+    </script>
+  </body>
+</html>

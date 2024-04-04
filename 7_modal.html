@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 모달창 시작 html에 맨 위에 위치시킨다. -->
+    <div class="black-bg show-modal">
+      <div class="white-bg">
+        <h4>로그인하세요.</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" />
+          </div>
+          <button type="submit" class="btn btn-primary">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 애니메이션 -->
+    <!-- one-way 애니메이션 만드는법
+    1. 시작스타일
+    2. 최종스타일
+    3. 원할떄 최종스타일로 변하라고 코드짬.
+    4. transition추가
+    -->
+
+    <!-- 모달창 끝 -->
+    <!--nav-->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+      </div>
+    </nav>
+
+    <ul class="list-group">
+      <li class="list-group-item">An itemfthfy</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon">로그인</span>
+    </button>
+
+    <!--  -->
+    <script>
+      // 1. 로그인 버튼을 불러온다. 클릭시 navbar-toggler 클릭시 모달창 나온다.
+      // 2. 모달창 어떻게 나와? 아까 클래스 만들어줬떤거 추가하기
+
+      document
+        .querySelector(".navbar-toggler")
+        .addEventListener("click", function () {
+          //모달창 클래스를 black-bg에 추가
+          document.querySelector(".black-bg").classList.add("show-modal");
+        });
+
+      //모달창 닫기 클릭하면  show-modal 삭제
+      //   document.querySelector("#close").classList.remove("show-modal");
+
+      document.querySelector("#close").addEventListener("click", function () {
+        //모달창 닫기 클릭하면  show-modal 삭제
+        document.querySelector(".black-bg").classList.remove("show-modal");
+      });
+    </script>
+  </body>
+</html>
