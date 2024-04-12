@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 황재호 서적 -->
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <p id="show">show</p>
+        <button id="click-btn">클릭</button>
+
+        <!-- 
+        <script>
+          const books = ["빨강머리앤", "비밀의화원", "동물농장"];
+          console.log(books.length);
+    
+          let result = books;
+          console.log(result);
+    
+          let text = ""; // 초기화
+          text += books + "<br>"; // text = text + books + "<br>"
+          text += books[0] + "<br>";
+          text += books[1] + "<br>";
+    
+          // <br>에 따옴표를 하는 이유는 html 태그를 변수에 담고 화면을 그리려면 따옴표가 들어간 스트링이어야한다.
+    
+          document.getElementById("show").innerHTML = text;
+        </script>
+         -->
+
+        <!-- Array()메서드와 new연산자를 이용해서 생성해보자.  
+        <script>
+          const books = new Array("빨강머리앤", "비밀의화원", "동물농장");
+          document.getElementById("show").innerHTML = books;
+        </script>
+        -->
+
+        <!-- 배열요소 값의 변경 
+        <script>
+          const books = ["빨강머리앤", "연개소문", "박지원", "대조영"];
+          books[0] = "이순신";
+          document.getElementById("show").innerHTML = books;
+        </script>
+        -->
+
+        <!-- 배열과객체의 차이 
+        <script>
+          const member1 = ["홍길동", "010-2356-8795", 30]; //배열
+          const member2 = { name: "홍길동", phone: "010-2356-8795", age: 30 }; //객체
+    
+          let text = "";
+          text += typeof member1 + "<br>"; // object로 출력 --객체이다.
+          text += typeof member2 + "<br>"; // object로 출력 --얘도 객체임을 알수있다.
+          text += member1[0] + "<br>";
+          text += member2.name; // text += member2["name"]도 가능
+          document.getElementById("show").innerHTML = text;
+        </script>
+        -->
+
+        <script>
+          // 빨강머리앤, 비밀의화원, 동물농장이 나오게 해라.
+          // 배열을 짜고 for문
+
+          let btn = document.getElementById("click-btn");
+          const books = ["빨강머리앤", "비밀의 화원", "동물농장"];
+          console.log(books);
+
+          btn.addEventListener("click", function () {
+            alert("클릭");
+
+            let text = "<ul>";
+            for (let i = 0; i < books.length; i++) {
+              // let text = books[i]; 동물농장으로 출력, 근데 배열로 다 나오게 하고싶으면?
+              // document.getElementById("show").innerHTML = text;
+              text += "<li>" + books[i] + "</li>";
+            }
+            text += "</ul>";
+            document.getElementById("show").innerHTML = text;
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
