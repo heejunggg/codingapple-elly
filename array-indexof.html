@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="show"></p>
+    <script>
+      const books = [
+        "이순신",
+        "명성황후",
+        "원효",
+        "연개소문",
+        "정몽주",
+        "이황이이",
+      ];
+      /*
+      let index1 = books.indexOf("연개소문");
+      let index2 = books.indexOf("명성황후");
+      let index3 = books.indexOf("벚꽃");
+
+      let text = "";
+      text += index1 + "<br>";
+      text += index2 + "<br>";
+      text += index3 + "<br>" + "<br>";
+      */
+
+      // includes() -존재여부
+      /*
+
+      let result1 = books.includes("원효");
+      let result2 = books.includes("벚꽃");
+
+      let text = "";
+      text += result1 + "<br>";
+      text += result2 + "<br>" + "<br>";
+      */
+
+      // slice() - 특정요소 추출
+      let arr1 = books.slice(1, 3);
+      let arr2 = books.slice(-3, -1);
+      let arr3 = books.slice(2);
+
+      let text = "";
+      text += arr1 + "<br>";
+      text += arr2 + "<br>";
+      text += arr3 + "<br>";
+
+      document.getElementById("show").innerHTML = text; // 의문! 이건 왜 안덮어씌여질까.하나만 있는데 두개가 다 출력되네
+    </script>
+  </body>
+</html>

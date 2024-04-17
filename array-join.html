@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 황재호 책 -->
+    <p id="show"></p>
+
+    <!-- join()
+    <script>
+      const books = ["이순신", "명성황후", "원효", "연개소문"];
+      let str1 = books.join();
+      let str2 = books.join("/");
+
+      let text = "";
+      text = text + str1 + "<br>"; //재할당
+      text = text + str2; //재할당
+      console.log(text);
+
+      document.getElementById("show").innerHTML = text;
+    </script> -->
+
+    <!-- push()
+    <script>
+      const books = ["이순신", "명성황후", "원효", "연개소문"];
+      let x = books.push("유관순");
+
+      let text = ""; //초기화
+      text += books + "<br>";
+      text += "-반환값" + x;
+
+      document.getElementById("show").innerHTML = text;
+    </script> -->
+
+    <!-- pop() / shift()
+      <script>
+      const books = ["이순신", "명성황후", "원효", "연개소문"];
+      //  let x = books.pop(); //끝에 요소 삭제
+      let y = books.shift(); // 첫 요소 삭제
+
+      let text = "";
+      text += books + "<br>";
+      //   text += "-반환값:" + x; // text = text + "-반환문" + "<br>"
+      text += "-반환값:" + y;
+
+      document.getElementById("show").innerHTML = text;
+    </script> -->
+
+    <script>
+      const books = [
+        "이순신",
+        "명성황후",
+        "원효",
+        "연개소문",
+        "정몽주",
+        "이황이이",
+      ];
+
+      let text = ""; //선언-초기화
+      let arr; // 선언-초기화
+      // 1번째 예시
+      arr = books.splice(2, 3, "개구리"); // 할당
+
+      text += books + "<br>";
+      text += "-반환값:" + arr + "<br>" + "<br>";
+
+      // 2번째 예시
+      arr = books.splice(1, 0, "고양이");
+      text += books + "<br>";
+      text += "-반환값:" + arr;
+
+      document.getElementById("show").innerHTML = text;
+    </script>
+  </body>
+</html>
