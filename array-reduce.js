@@ -63,8 +63,7 @@ const total = coffee.reduce((accumulator, fruit) => {
 }, 0);
 console.log(total);
 
-// 수업시간에 했떤 거 해보기----이해안감!! 질문!!!!!!
-// for문으로 할때. - 그 전까지 누적을 전역변수로.
+// 수업시간에 했떤 거 해보기---------------------
 
 // -------ex. 04----또다른 문제 !!!!!------------------------
 
@@ -83,7 +82,8 @@ ph.reduce((acc,currentValue,index) =>{
 2.핸드폰번호를 입력했을때 별표로 나오게
 reducea(010-5698-7894)  -> 출력 : 010-****-7894
 
-자연어풀이 끝*/
+자연어풀이 끝
+*/
 
 /* 1. 코드시작 - 변수로 출력.
 const ph = ["010", "2345", "4567"];
@@ -98,15 +98,15 @@ console.log(a);
 // 순회를 하면서 누적값,현재요소,
 function reducef(ph) {
   /*자연어 풀이
-  //1. 배열로 생성
-  //2. 배열로 생성된 입력 값 [a,b,c] --> ["010","3265","6587"] 임의 번호가 들어가면 안됨.
-  /*3. 누적값
-     - 기본값은 없고. 
-     if (index ===1) return acc = acc + "****"
-         return acc = acc + "-" + currenValue
-*/
+    //1. 배열로 생성
+    //2. 배열로 생성된 입력 값 [a,b,c] --> ["010","3265","6587"] 임의 번호가 들어가면 안됨.
+    //3. 누적값
+      - 기본값은 없고. 
+      if (index ===1) return acc = acc + "****"
+          return acc = acc + "-" + currenValue
+  */
 
-  // acc에 기본값이 있을때,
+  // acc(누적값)에 기본값이 있을때,
   const parts = ph.split("-"); //  -를 붙여서 배열이 생성된다.
 
   const phone = parts.reduce((acc, currentValue, index) => {
