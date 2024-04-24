@@ -66,18 +66,6 @@ for (let key in person) {
   console.log(`${key}: ${person[key]}`); // value값만 나오네.
 }
 
-const person1 = {
-  0: 10,
-  1: 20,
-  2: 30,
-};
-
-const arr = Array.from(person);
-console.log(arr); // 왜 배열로 안된다는거지? person이 유사객체배열이 아니라서? 유사배열객체의 뜻은?
-
-const arr2 = Array.from(person);
-console.log(arr2);
-
 /*
 const obj = {
   0: "a",
@@ -91,8 +79,6 @@ const obj = {
 const arr_2 = Array.from(obj); // [a,b]
 console.log(arr_2);
 const arr_3 = Array.from({ length: 6 }); // empty로 채워진 길이 6
-
-
 */
 
 console.log(
@@ -155,12 +141,16 @@ const heejung2 = {
   length: 3, // 나중에 4로 바꿔줘도 됨.
 };
 
-// const b = Array.from(heejung2);
-// console.log(b);
-heejung2[3] = " 이녀석";
+heejung2[3] = " 이녀석"; // [ ]으로 추가하기.
 heejung2.length = 4; // length 업데이트
 
-const b = Array.from(heejung2);
-console.log(b); // [ 'age', 'coding', 'haenam', ' 이녀석' ]
+Array.prototype.push.call(heejung2, "이천재야!"); // push()로 추가하기
+heejung2.length = 5; // length 업데이트
 
-//2. push( )를 이용해서 추가해주기
+const b = Array.from(heejung2);
+console.log(b); // [ 'age', 'coding', 'haenam', ' 이녀석', '이천재야!' ]
+
+console.log("--------------이터러블--------------");
+const texts = "안녕하세요";
+const text_array = Array.from(texts);
+console.log(text_array);
