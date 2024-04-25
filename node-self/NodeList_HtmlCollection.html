@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event</title>
+  </head>
+  <body>
+    <div id="body">
+      <div class="testDiv"></div>
+      <div class="testDiv"></div>
+      <div class="testDiv"></div>
+      <div class="testDiv"></div>
+      <div class="testDiv"></div>
+    </div>
+
+    <script>
+      const before_query = document.querySelectorAll(".testDiv");
+      const before_get = document.getElementsByClassName("testDiv");
+
+      const after_get = document.getElementsByClassName("testDiv");
+
+      //div를 하나 생성하기 위해.
+      const body = document.querySelector("#body"); // 어디에 생기게할꺼야
+      const newDiv = document.createElement("div"); // 노드생성, 아직 들어가는 내용없음
+      //   let textnode = document.createTextNode("안녕");
+      newDiv.classList.add("testDiv");
+      // body와 연결
+      body.appendChild(newDiv); // <div class="testDiv"></div> 생김.
+
+      console.log(before_query.length); // 5 nodelist
+      console.log(before_get.length); // 6   htmlcollection
+
+      const after_query = document.querySelectorAll(".testDiv");
+
+      console.log(after_query.length); // 5 nodelist
+      console.log(after_get.length); // 6 htmlcollection
+    </script>
+  </body>
+</html>
