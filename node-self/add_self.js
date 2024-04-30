@@ -72,7 +72,7 @@ const hrs = today.getHours() // 현재 시간중 시 정보를 가져온다.
     srcNode2.value = "../img/afternoon.jpg"
     imgE.setAttributeNode(srcNode2) // 요소와 속성 연결하기
 
-    // 어디에위치시킬지 자식노드 연결하기
+    // 어디에 위치 시킬지 자식노드 연결하기
     document.orderInfo_add.appendChild(imgE)
 
 */
@@ -108,20 +108,46 @@ title_h1.addEventListener("click", () => {
 }); // 왜안지워지지...
 
 const ul_remove = document.querySelector("#items"); //ul
-const li_remove = document.querySelectorAll("#items > li"); //li들
-console.log(ul_remove);
-console.log(li_remove);
+const items = document.querySelectorAll("#items > li"); //li들
 
-li_remove.parentNode;
-// console.log(li_remove.parentNode); //ul로 나옴
+console.log(items);
+
+items.parentNode;
+// console.log(items.parentNode); //ul로 나옴
 //자식노드 지우기
 
-//*** li를 클릭하면 삭제하기 해보기 *****/
+//*** 1. li를 클릭하면 삭제하기 해보기 *****/
 /*
 1. li가 100개일수있다.
     -- li의 부모노드로 가서 부모노드에서 내가 선택한 li를 삭제한다.
         -- li가 여러개이다. 순회.어떤 for문을 돌아야하나.
         -- 유사배열 객체 forEach로 돌리자.
-        --요소.forEach()
+        --요소.forEach()-??
 
 */
+
+items.forEach((item) => {
+  item.addEventListener("click", function () {
+    console.log(item.parentNode); // ul
+    // item.parentNode.remove(item); // ul 자체를 없앤다.
+    item.parentNode.removeChild(item);
+  });
+});
+
+//**** 2. x표시를 클릭하면 삭제하게 하기 */
+/* 
+1.li 안에 있는 X표시 span을 클릭시 li의 요소를 지운다.
+  - li가 많아서 for를 돌린다.
+  - button을 클릭하면 button의 부모를 가져와서 li를 지운다.
+  - span을 클릭하면 li를 지운다.
+  span.parentNode.remove
+
+*/
+const buttons = document.querySelectorAll("li > span");
+console.log(buttons);
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.parentNode.remove(button);
+  });
+});
