@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 1</title>
+    <link rel="stylesheet" href="board.css" />
+    <script defer src="board.js"></script>
+  </head>
+  <body>
+    <div id="contaier-box">
+      <div id="container">
+        <h1>게시글</h1>
+        <form>
+          <ul id="userInput">
+            <li>
+              <label for="username">작성자</label>
+              <input type="text" id="username" />
+            </li>
+            <li>
+              <label for="bigtitle">제목</label>
+              <input type="text" id="bigtitle" />
+            </li>
+          </ul>
+          <button id="save">등록하기</button>
+        </form>
+        </div>
+
+        <!--  -->
+        <div id="container-write">
+          <h1>목록</h1>
+
+          <table id="attendant">
+            <thead>
+              <tr>
+                <th>작성자</th>
+                <th>제 목</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

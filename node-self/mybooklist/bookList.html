@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <link rel="stylesheet" href="css/bookList.css" />
+    <script defer src="bookList.js"></script>
+    <style>
+      ul,
+      li {
+        list-style: none;
+      }
+      body {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Book List</h1>
+      <form action="">
+        <ul id="bookInfo">
+          <li>
+            <label for="title">제목</label>
+            <input type="text" id="title" />
+          </li>
+          <li>
+            <label for="author">저자</label>
+            <input type="text" id="author" />
+          </li>
+        </ul>
+
+        <button type="reset">취소하기</button>
+        <button type="save" id="save">저장하기</button>
+      </form>
+      <!-- 책목록 -->
+      <ul id="bookList"></ul>
+    </div>
+  </body>
+</html>

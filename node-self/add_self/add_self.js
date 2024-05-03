@@ -35,13 +35,13 @@ function nodeadd() {
 orderInfoBtn.addEventListener("click", nodeadd);
 
 // 이미지추가하기 - 속성노드 만들기
-//1. 삭제버튼 만들기-- 임의로 만들고.--> Node를 만들고 그안에 삭제버튼 어떻게?--그래서썜이 다 복사한건가
+//1. 삭제버튼 만들기-- 임의로 만들고.--> Node를 만들고 그안에 삭제버튼 어떻게?--
 //2. 클릭하면 삭제되게.
 
 // [수정] 목록에서 클릭하면 -- 세부로 들어간다 --- [수정] 체크박스 생성 --> [삭제]버튼 클릭하면 삭제
 let newImg2 = document.createElement("img"); // 이미지 요소 노드 만들기
 let srcNode = document.createAttribute("src"); // 이미지 속성 노드 만들기
-srcNode.value = "../img/starbuck.jpg";
+srcNode.value = "img/starbuck.jpg";
 console.log(srcNode);
 
 // 요소노드와 속성노드 연결하기 setAttributeNode()
@@ -68,8 +68,8 @@ const hrs = today.getHours() // 현재 시간중 시 정보를 가져온다.
 2. img 요소를 만들고 이미지 파일 경로를 지정하려면 어떻게 해야할까?
     --let imgE = document.createElement("img") // 이미지 태그를 만든다
     --let srcNode2 = document.createAttribute("src") // 이미지 속성만들기
-    srcNode2.value = "../img/morning.jpg"
-    srcNode2.value = "../img/afternoon.jpg"
+    srcNode2.value = "img/morning.jpg"
+    srcNode2.value = "img/afternoon.jpg"
     imgE.setAttributeNode(srcNode2) // 요소와 속성 연결하기
 
     // 어디에 위치 시킬지 자식노드 연결하기
@@ -89,7 +89,7 @@ let imgE = document.createElement("img");
 // imgE.setAttributeNode(srcNode2); // 요소와 속성 연결하기
 
 // 위의코드 말고 직접 할당한다.
-imgE.src = hrs < 12 ? "../img/morning.jpg" : "../img/afternoon.jpg";
+imgE.src = hrs < 12 ? "img/morning.jpg" : "img/afternoon.jpg";
 // 어디에 위치시킬지 자식노드 연결하기
 orderInfo_add2.appendChild(imgE);
 
@@ -116,7 +116,7 @@ items.parentNode;
 // console.log(items.parentNode); //ul로 나옴
 //자식노드 지우기
 
-//*** 1. li를 클릭하면 삭제하기 해보기 *****/
+//*** 예시3. li를 클릭하면 삭제하기 해보기 *****/
 /*
 1. li가 100개일수있다.
     -- li의 부모노드로 가서 부모노드에서 내가 선택한 li를 삭제한다.
@@ -125,7 +125,7 @@ items.parentNode;
         --요소.forEach()-??
 
 */
-
+/*
 items.forEach((item) => {
   item.addEventListener("click", function () {
     console.log(item.parentNode); // ul
@@ -133,6 +133,7 @@ items.forEach((item) => {
     item.parentNode.removeChild(item);
   });
 });
+*/
 
 //**** 2. x표시를 클릭하면 삭제하게 하기 */
 /* 
@@ -141,13 +142,22 @@ items.forEach((item) => {
   - button을 클릭하면 button의 부모를 가져와서 li를 지운다.
   - span을 클릭하면 li를 지운다.
   span.parentNode.remove
-
 */
+
 const buttons = document.querySelectorAll("li > span");
 console.log(buttons);
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    button.parentNode.remove(button);
+    button.parentNode.remove();
   });
+
+  //***************forEach로 안하고 부모노드 선택해서 지워주면 될거같은데. 실행안됨. */
+  /*
+  const button = document.querySelector("li > span");
+  button.addEventListener('click', (button) => {
+    button.parentNode.remove();
+  })
+    
+  */
 });
