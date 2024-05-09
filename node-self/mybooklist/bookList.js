@@ -3,16 +3,16 @@
     -- bookList 목록에 표시된다.
         bookList 목록 밑에 표시된다. 그위치에 표시되게 하려면?
 
-            1. 요소를 만들고, const item = document.createElement("li")
-            2. li안에 글자를 넣는다.
-                입력폼에 입력한 글자를 넣어야겠찌..어떻게 받아오지..
-               item.innerHTML= `${title.value} - ${author.value}
-               <span class="buttonDelete>삭제</span>"`
-                li와 그안의 글과 연결한다.
-                bookList.appendChild(item)
-            
-            3. '저장하기'버튼을 클릭하면 위의 처럼 나오게 1차로 코드작성.
+        1. 요소를 만들고, const item = document.createElement("li")
+        2. li안에 글자를 넣는다.
+            입력폼에 입력한 글자를 넣어야겠찌..어떻게 받아오지..
+            item.innerHTML= `${title.value} - ${author.value}
+            <span class="buttonDelete>삭제</span>"`
+            li와 그안의 글과 연결한다.
+            bookList.appendChild(item)
         
+        3. '저장하기'버튼을 클릭하면 위의 처럼 나오게 1차로 코드작성.
+    
 */
 
 const title = document.querySelector("#title");

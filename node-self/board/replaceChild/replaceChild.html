@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Replace a child node with a new node</h3>
+    <ul id="Cars">
+      <li>Maruti</li>
+      <li>Hyundai</li>
+      <li>Toyota</li>
+    </ul>
+    <button onclick="replaceFunction()">Replace</button>
+    <script>
+      function replaceFunction() {
+        const old1 = document.getElementById("Cars").children[0];
+        const new1 = document.createTextNode("KIA");
+        old1.replaceChild(new1, old1.childNodes[0]);
+      }
+    </script>
+  </body>
+</html>

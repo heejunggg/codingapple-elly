@@ -35,6 +35,7 @@ tbody
 //등록하기 버튼을 변수로
 const $saveBtn = document.querySelector("#save");
 const $tbody = document.querySelector("tbody");
+const $textarea = document.querySelector("#text-input");
 
 $saveBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -73,6 +74,7 @@ $saveBtn.addEventListener("click", (e) => {
   // 입력 후 빈공간
   $username.value = "";
   $bigtitle.value = "";
+  $textarea.value = "";
 
   // 삭제하기 버튼 클릭하면 해당 tr 삭제하기
   // 생기는 tr이 많고 삭제하기도 많다. 순회를 해서 어디를 $new_tr, 삭제하기
@@ -83,4 +85,11 @@ $saveBtn.addEventListener("click", (e) => {
   $removeBtn.addEventListener("click", () => {
     $new_tr.remove();
   });
+});
+
+//*********** 수정하기 **************************
+//제목의 td를 클릭하면 alert창이 뜬다. 그 alert창은 수정이다.
+// const $td_title = document.createElement("td");
+$td_title.addEventListener((el) => {
+  alert("수정해보자");
 });

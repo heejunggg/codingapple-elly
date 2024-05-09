@@ -161,3 +161,61 @@ buttons.forEach((button) => {
     
   */
 });
+
+//*********예시3********** */
+/*
+/*
+map과 join을 이용해서
+<ul>
+  <li>첫 번째 게시글</li>
+  <li>두 번째 게시글</li>
+  <li>세 번째 게시글</li>
+</ul>
+만들어라
+*/
+
+const items_box = [
+  { id: 1, title: "첫 번째 게시글" },
+  { id: 2, title: "두 번째 게시글" },
+  { id: 3, title: "세 번째 게시글" },
+];
+console.log(items_box);
+
+const itemsHTML1 = items_box.map((item) => `<li>${item.title}</li>`); // 대괄호로 배열로 표시된다.
+const itemsHTML = items_box.map((item) => `<li>${item.title}</li>`).join("\n"); // 문자로 되어야한다.
+console.log(itemsHTML1);
+console.log(itemsHTML);
+//ul로감싸야한다.
+const itemsUl = `<ul>${itemsHTML}</ul>`;
+console.log(itemsUl);
+
+//**************배열을 문자로 변환해서 넣어보기!!!*****/
+/* html에 
+1.  <li>사과 - 1000원</li><li>바나나 - 500원</li><li>체리 - 1500원</li>
+표시하기
+2. items(ul)의 아래에 넣는다.
+*/
+const products = [
+  { id: 1, name: "사과", price: 1000 },
+  { id: 2, name: "바나나", price: 500 },
+  { id: 3, name: "체리", price: 1500 },
+];
+
+const productHTML = products
+  .map((product) => `<li><span>&cross;</span>${product.name}-${product.price}`)
+  .join("\n");
+console.log(productHTML);
+
+// items아래에 넣으려면.노드추가.
+
+/*
+const ul_remove = document.querySelector("#items"); //ul
+const items = document.querySelectorAll("#items > li"); //li들
+*/
+
+//ul_remove.appendChild(productHTML);//---> 왜추가가 안되지. --> 아래처럼 하니 추가가 되지만 삭제는 안된다.
+// productHTML.parentNode;
+// console.log(productHTML.parentNode);
+
+// 기존 내용에 새로운 HTML 추가---이게맞음
+ul_remove.innerHTML += productHTML;

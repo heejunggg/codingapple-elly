@@ -197,3 +197,31 @@ const modifiedNumbers = numbers_map.map((number) =>
 //   }
 // });
 console.log(modifiedNumbers);
+
+console.log("-----------0503map과 join예제------------");
+
+const items_box = [
+  { id: 1, title: "첫 번째 게시글" },
+  { id: 2, title: "두 번째 게시글" },
+  { id: 3, title: "세 번째 게시글" },
+];
+/*
+이용해서 map과 join을 이용해서
+<ul>
+  <li>첫 번째 게시글</li>
+  <li>두 번째 게시글</li>
+  <li>세 번째 게시글</li>
+</ul>
+만들어라
+
+map은 새로운 배열을 만든다.
+요소.map((el) => {
+})
+*/
+
+//title의 문자열이 와야한다. --> join으로 배열을 문자열로 만들어야한다.
+// ul과 li의 태그가 있어야한다.
+// const postItemsHTML = items_box.map((item) => `<li>${item.title}</li>`);
+const itemsHTML = items_box.map((item) => {
+  `<li>${item.title}</li>`;
+});
