@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>DOM replaceChild() Method</title>
+  </head>
+
   <body>
-    <h3>Replace a child node with a new node</h3>
-    <ul id="Cars">
-      <li>Maruti</li>
-      <li>Hyundai</li>
-      <li>Toyota</li>
+    <h1 style="color: green">GeeksforGeeks</h1>
+    <h2>DOM replaceChild() Method</h2>
+    <p>Sorting Algorithm</p>
+    <ul id="menu">
+      <li>Homepage</li>
+      <li>Services</li>
+      <li>About</li>
+      <li>Contact</li>
     </ul>
-    <button onclick="replaceFunction()">Replace</button>
+
+    <button onclick="Geeks()">Click Here!</button>
+
     <script>
-      function replaceFunction() {
-        const old1 = document.getElementById("Cars").children[0];
-        const new1 = document.createTextNode("KIA");
-        old1.replaceChild(new1, old1.childNodes[0]);
+      // 클릭하면 home이라는 classname을 가진 요소가 homepage대체하기.
+
+      // click here클릭시 첫번쨰 자식요소 Insertion sort ---> heejung으로 바꾸기
+      // 부모노드.replaceChild(new, old)
+      function Geeks() {
+        let li_exchange = document.createElement("li");
+        li_exchange.textContent = "home";
+        console.log(li_exchange); // home
+
+        //
+        let li_exchange_node = document.createTextNode("li");
+        console.log(`텍스트노드: ${li_exchange_node}`); // li.로 나옴.
+
+        let menu = document.getElementById("menu");
+
+        let first = menu.children[0];
+        console.log(menu.childNodes); // 모든 배열들이 나옴---nodelist
+        console.log(menu.children); // html Collection
+        console.log(first); // 첫번째 li가 나옴.
+
+        menu.replaceChild(li_exchange, first);
       }
     </script>
   </body>

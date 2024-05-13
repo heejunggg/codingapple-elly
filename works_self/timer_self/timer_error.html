@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 시작을 누르면 1초마다 숫자가 1씩 증가 -->
+    <!--시작버튼만들고, setInterval -->
+    <button class="play">시작</button>
+    <button class="stop">중지</button>
+    <button class="reset">초기화</button>
+
+    <!-- 얘가 없으니 NaN으로 나온다. -->
+    <div class="here">0</div>
+  </body>
+
+  <script>
+    const $playBtn = document.querySelector(".play");
+    const $displayarea = document.querySelector(".here");
+    const $stopBtn = document.querySelector(".stop");
+    const $resetBtn = document.querySelector(".reset");
+    const count = parseInt($displayarea.innerText);
+
+    //1.play버튼 클릭
+
+    let timer;
+
+    // 실행하는 함수를 만든다.
+    // current부분 화면에 보여줘야하기 때문에 함수에 넣자!
+    function clock() {
+      let current = new Date();
+      const hrs = current.getHours();
+      const mins = current.getMinutes();
+      const secs = current.getSeconds();
+      console.log(current);
+
+      $displayarea.innerText = new Date().toString();
+    }
+
+    /******* error issu ********
+    아래 time 이 부분에서 error 시작버튼을 누르지 않았는데 자동으로 업데이트 되고있었다.
+    이부분을 시작버튼 누를때 돌아갈수있도록 이벤트에 넣거나, 시작함수를 따로 만들어서
+    이 함수를 이벤트에 호출하면 된다. 아래코드 처럼 수정하면 된다.
+    */
+
+    // 1초마다 clock() 함수 실행시킨다.
+    timer = setInterval(
+      clock,
+      1000,
+      `현재시간은 ${$displayarea.innerText}입니다.`
+    );
+    console.log(timer);
+
+    // 중지하는 함수를 만든다.
+    function stop() {
+      clearInterval(timer);
+    }
+
+    //2. play
+    $playBtn.addEventListener("click", () => {
+      // 이부분을 이렇게 수정하면된다.
+      clock()((timer = setInterval(clock, 1000)));
+    });
+
+    //3.stop
+    $stopBtn.addEventListener("click", stop);
+  </script>
+</html>
+<!-- 어디에서 오류가 나고 내가 무엇을 모르는지 알기위해 같이올림 -->

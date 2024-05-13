@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 시작을 누르면 1초마다 숫자가 1씩 증가 -->
+    <!--시작버튼만들고, setInterval -->
+    <button class="play">시작</button>
+    <button class="stop">중지</button>
+    <button class="reset">초기화</button>
+
+    <!-- 얘가 없으니 NaN으로 나온다. -->
+    <div class="here">0</div>
+  </body>
+
+  <script>
+    const $playBtn = document.querySelector(".play");
+    const $displayarea = document.querySelector(".here");
+    const $stopBtn = document.querySelector(".stop");
+    const $resetBtn = document.querySelector(".reset");
+    const count = parseInt($displayarea.innerText);
+
+    let timer;
+    //시간,분,초를 만드는 함수를 한다.
+    function clock() {
+      let current = new Date();
+      const hrs = current.getHours();
+      const mins = current.getMinutes();
+      const secs = current.getSeconds();
+
+      $displayarea.innerText = `${hrs}시 ${mins}분 ${secs}초`;
+    }
+
+    // 중지하는 함수를 만든다.
+    function stop() {
+      clearInterval(timer);
+    }
+
+    //초기화하는 함수를 만든다.
+    function reset() {
+      clearInterval(timer);
+      $displayarea.innerText = "0시 0분 0초";
+    }
+
+    //
+    $playBtn.addEventListener("click", function () {
+      clock();
+      timer = setInterval(clock, 1000); // 1초마다 계속 업데이트
+    });
+
+    $stopBtn.addEventListener("click", stop);
+
+    //초기화
+    $resetBtn.addEventListener("click", reset);
+  </script>
+</html>
