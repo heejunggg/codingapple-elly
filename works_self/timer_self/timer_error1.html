@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="here">0</div>
+    <button class="play">시작</button>
+    <button class="stop">중지</button>
+    <button class="reset">초기화</button>
+
+    <script>
+      const $playBtn = document.querySelector(".play");
+      const $displayarea = document.querySelector(".here");
+      const $stopBtn = document.querySelector(".stop");
+      const $resetBtn = document.querySelector(".reset");
+
+      let timer;
+      // 시작함수를 만든다.
+      // 클릭이벤트가 실행이 되었을떄 이 함수로 간다.-- setInterval이 있어야겠찌.
+      function update() {
+        //시간이 나와있는 내장객체 인스턴트를 만든다.
+
+        //setInterval
+        timer = setInterval(() => {
+          let today = new Date();
+          let hours = today.getHours();
+          let min = today.getMinutes();
+          let secs = today.getSeconds();
+
+          $displayarea.innerText = `현재시간은 ${hours} ${min} ${secs}`;
+          console.log(`현재시간은 ${hours} ${min} ${secs}`);
+        });
+      }
+
+      function stop() {
+        clearInterval(timer);
+      }
+
+      //초기화
+      function reset() {
+        clearInterval(timer); // 타이머를 중지시키고
+        $displayarea.innerText = "0"; // 디스플레이 영역을 '0'으로 초기화.
+      }
+
+      $playBtn.addEventListener("click", update);
+      $stopBtn.addEventListener("click", stop);
+      $resetBtn.addEventListener("click", reset);
+    </script>
+  </body>
+</html>
+
+<!-- 다른버전.으로 구동성공
+    여기에서 이슈는
+        -- setInterval은 매개변수를 받지않고. setInterval(함수, 시간)을 담는다.
+        --setInterval((timer) => {...}-----xxxx
+        ---timer = setInterval(() 에서 위의코드 매개변수를 timer을 하지말고 변수로 받자!
+-->
