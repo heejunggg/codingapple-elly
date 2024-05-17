@@ -58,20 +58,22 @@ function update() {
     }
     */
 
-    // 수정버튼시 modal
-    const modal = document.getElementById("myModal");
-    const modalInput = document.getElementById("modalInput");
-    const modalSave = document.getElementById("modalSave");
+    // 수정버튼시 modal 나온다.
+    // $li.textContent =  모달input.value
+    // 저장버튼 시
+    //  - 모달input.value = $li.textContent
+    const $modal = document.getElementById("myModal"); // 전체모달
+    const $modaContent = document.getElementsByClassName("modal-content");
+    const $modalInput = document.getElementById("modalInput"); //input
+    const $modalSaveBtn = document.getElementById("modalSave");
 
-    let currentLi; // 현재 수정하고자 하는 li 요소를 저장하기 위한 변수
-    modal.style.display = "block";
-    modalInput.value = $li.textContent;
+    $modal.style.display = "block";
+    $modalInput.value = $li.textContent;
+    console.log($modalInput.value);
 
-    // currentLi = $li;
-    modalSave.addEventListener("click", () => {
-      // $li 요소의 텍스트를 수정하자..
-      $li.textContent = modalInput.value;
-      modal.style.display = "none";
+    $modalSaveBtn.addEventListener("click", () => {
+      $li.textContent = $modalInput.value;
+      $modal.style.display = "none";
     });
   });
 }
