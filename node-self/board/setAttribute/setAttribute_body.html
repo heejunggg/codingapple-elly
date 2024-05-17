@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="password" />
+    <button type="button">비밀번호 보기</button>
+
+    <script>
+      //   비밀번호클릭하면 속성이 바뀐다.type ------- text
+      const btn = document.querySelector("button");
+      const inputpw = document.querySelector("input");
+
+      btn.addEventListener("click", () => {
+        //클릭하면 속성이 바귄다.
+        inputpw.setAttribute("type", "text");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>동적 웹 페이지 예제</title>
+  </head>
+  <body>
+    <form id="postForm">
+      <input type="text" id="title" placeholder="제목" />
+      <textarea id="content" placeholder="내용"></textarea>
+      <button type="submit">등록하기</button>
+    </form>
+    <div id="boardCard"></div>
+
+    <script>
+      const $boardCard = document.getElementById("boardCard");
+      let lastId = 0; // 마지막 게시글의 id를 추적합니다.
+
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 폼의 기본 제출 동작을 방지합니다.
+
+          // 입력된 title과 content 값을 가져옵니다.
+          const title = document.getElementById("title").value;
+          const content = document.getElementById("content").value;
+
+          // 새로운 게시글 객체를 생성합니다.
+          const user = {
+            id: ++lastId, // id를 1 증가시킵니다.
+            title: title,
+            content: content,
+          };
+
+          // 새로운 div를 생성하여 게시글 정보를 표시합니다.
+          const userDiv = document.createElement("div");
+          userDiv.setAttribute("class", "user-data");
+          userDiv.setAttribute("data-id", user.id);
+          userDiv.textContent = `제목:${user.title}, 내용:${user.content}`;
+          $boardCard.appendChild(userDiv);
+
+          // 입력 폼을 초기화합니다.
+          document.getElementById("title").value = "";
+          document.getElementById("content").value = "";
+        });
+    </script>
+  </body>
+</html>

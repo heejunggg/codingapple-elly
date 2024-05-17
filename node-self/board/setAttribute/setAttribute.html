@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>동적 웹 페이지 예시</title>
+  </head>
+  <body>
+    <button id="loadDataBtn">데이터 불러오기</button>
+    <div id="dataContainer"></div>
+
+    <script>
+      document
+        .getElementById("loadDataBtn")
+        .addEventListener("click", function () {
+          // 임시로 사용할 가짜 데이터
+          const fakeData = [
+            { id: 1, name: "사용자 1", age: 30 },
+            { id: 2, name: "사용자 2", age: 25 },
+            { id: 3, name: "사용자 3", age: 28 },
+          ];
+
+          const container = document.getElementById("dataContainer");
+          container.innerHTML = ""; // 컨테이너 초기화
+
+          // 데이터를 동적으로 생성하여 페이지에 추가
+          fakeData.forEach((user) => {
+            const userDiv = document.createElement("div");
+            userDiv.setAttribute("class", "user-data");
+            userDiv.setAttribute("data-id", user.id);
+            userDiv.textContent = `이름: ${user.name}, 나이: ${user.age}`;
+            container.appendChild(userDiv);
+          });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>게시글 등록</title>
+  </head>
+  <body>
+    <div id="postArticle"></div>
+    <button id="addPost">게시글 추가</button>
+
+    <script>
+      // mockposts 초기화
+      let mockposts = [
+        { id: 1, title: "제목 - 1", content: "내용 - 1" },
+        { id: 2, title: "제목 - 2", content: "내용 - 2" },
+      ];
+
+      // 마지막 게시글의 id를 추적
+      let lastId = mockposts[mockposts.length - 1].id;
+
+      // mockposts의 내용을 화면에 표시하는 함수
+      function displayPosts() {
+        const $postArticle = document.getElementById("postArticle");
+        $postArticle.innerHTML = ""; // 기존 내용을 지우고 새로 시작
+        mockposts.forEach((post) => {
+          const postDiv = document.createElement("div");
+          postDiv.setAttribute("class", "post-data");
+          postDiv.setAttribute("data-id", post.id);
+          postDiv.textContent = `제목: ${post.title}, 내용: ${post.content}`;
+          $postArticle.appendChild(postDiv);
+        });
+      }
+
+      // 새 게시글 추가 함수
+      function addPost(title, content) {
+        const newPost = { id: ++lastId, title, content };
+        mockposts.push(newPost);
+        displayPosts(); // 화면을 새로고침하여 추가된 내용을 표시
+      }
+
+      document.getElementById("addPost").addEventListener("click", function () {
+        // 여기서는 예제를 단순화하기 위해 title과 content를 고정된 값으로 설정
+        addPost(`제목 - ${lastId + 1}`, `내용 - ${lastId + 1}`);
+      });
+
+      // 초기 게시글 표시
+      displayPosts();
+    </script>
+  </body>
+</html>
