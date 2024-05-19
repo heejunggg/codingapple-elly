@@ -22,7 +22,7 @@ console.log($items);
 function update() {
   const $li = document.createElement("li");
   $li.className = "liclass";
-  $li.textContent = $input.value;
+  // $li.textContent = $input.value;
   $ul_list.appendChild($li);
 
   // 삭제버튼
@@ -41,36 +41,65 @@ function update() {
   const $modifyBtn = document.createElement("button");
   $modifyBtn.className = "modify_btn";
   $modifyBtn.textContent = "수정";
-  $li.append($removeBtn, $modifyBtn);
+
+  // $span.textContent = $input.value;
+  // 텍스트를 담을 별도의 요소 생성
+  const $textContent = document.createElement("span");
+  $textContent.textContent = $input.value;
+  $li.append($textContent, $removeBtn, $modifyBtn); // li의 자식이 생김.
 
   // 수정버튼시 prompt
   $modifyBtn.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
-    alert("수정");
-
-    /*prompt로하니..안되네''' 다른방법 검색
-    const modify_text = prompt("수정사항을 입력하시오", $li.textContent);
-    console.log(modify_text);
-
-    if (modify_text !== null) {
-      $li.textContent = modify_text;
-    }
-    */
 
     // 수정버튼시 modal 나온다.
     // $li.textContent =  모달input.value
     // 저장버튼 시
     //  - 모달input.value = $li.textContent
+    //    - $li.textContent에서 자식요소가 텍스트, 삭제버튼, 수정버튼이 있다.
+    //      - 텍스트를 span 요소를 만들어서 span안에 텍스트를 넣어놓자!
     const $modal = document.getElementById("myModal"); // 전체모달
     const $modaContent = document.getElementsByClassName("modal-content");
-    const $modalInput = document.getElementById("modalInput"); //input
+    const $modalInput = document.querySelector("#modalInput"); //input
     const $modalSaveBtn = document.getElementById("modalSave");
 
+    //let currentLi; // 현재 수정하고자 하는 li 요소를 저장하기 위한 변수-- 없어도 되긴됨.
+    // $modalInput.value = $li.textContent;
     $modal.style.display = "block";
-    $modalInput.value = $li.textContent;
     console.log($modalInput.value);
 
+    // currentLi = $li;
+
+    // console.log(target); // button수정이 선택
+    // console.log(target.parentNode); //li
+    // li의 #text를 선택하면 된다.--#text를 어떻게 선택해?..
+    // 그러므로 span요소를 만들자
+
+    const target = e.currentTarget;
+    const targetParent = target.parentNode;
+    console.log(targetParent); // li가 나옴
+
+    for (const child of targetParent.children) {
+      // targetParent.chlidren는 text, 삭제버튼, 수정버튼
+      // 그럼 child는 $textContent, 삭제버튼, 수정버튼의 각 자식들...
+      console.log(child);
+      $modalInput.value = targetParent.textContent;
+      if (child.matches("span")) {
+        //
+        // $modalInput.value = child.childNodes[0].textContent; // 이렇게 해도 되고.
+        $modalInput.value = child.innerText;
+        break; //<span> 태그를 찾았으므로 더 이상 순회할 필요 없음
+      }
+    }
+
+    const $close = document.querySelector(".close");
+    //위의것을 getElementsClassName으로 하면 선택이 안된다..왜????
+    $close.addEventListener("click", () => {
+      $modal.style.display = "none";
+    });
+
+    // 모달창에서 저장하기
     $modalSaveBtn.addEventListener("click", () => {
       $li.textContent = $modalInput.value;
       $modal.style.display = "none";
